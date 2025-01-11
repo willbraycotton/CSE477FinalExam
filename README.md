@@ -1,7 +1,7 @@
-# CSE477FinalExam
+# Project Management Tool
 
 
-The final exam for CSE 477, where I was tasked with creating a web application of a task management system like Trello.
+This is a Project Management Tool web application, inspired by the well-known Trello application. It was developed as part of the coursework for CSE 477: Web Application Development.
 
 Link to Web app (Hosted on Google Cloud):
 
