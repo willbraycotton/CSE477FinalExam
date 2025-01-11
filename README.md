@@ -38,5 +38,6 @@ Persistent Storage
 - Group Chat: A chat window on each Board page allows active members to communicate in real-time.
 - Input Window: For typing and submitting messages.
 - Display Window: For showing chat messages from all users.
+- Chat Visibility: Only members currently logged into the same Board page can see and participate in the chat.
 
 
