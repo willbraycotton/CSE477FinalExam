@@ -1,0 +1,85 @@
+{% extends 'shared/layout.html' %}
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main/css/board.css') }}">
+{% endblock %}
+{% block extrajs %}
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+{% endblock %}
+
+{% block maincontent %}
+<h1>{{ board.name }}</h1>
+<input type="hidden" id="board-id" value="{{ board.board_id }}" title="hidden">
+<div class="board-columns">
+    <div class="board-column">
+        <h2>To Do</h2>
+        <ul id="todo-list">
+            {% for card in cards if card.list == 'To Do' %}
+            <li class="card-item" data-id="{{ card.card_id }}">
+                <input type="text" id="card-name-{{ card.card_id }}" value="{{ card.name }}" title ="text" readonly>
+                <div class="card-buttons">
+                    <button onclick="editCard('{{ card.card_id }}')">Edit</button>
+                    <button onclick="saveCard('{{ card.card_id }}')" style="display: none;">Save</button>
+                    <button onclick="deleteCard('{{ card.card_id }}')">Delete</button>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <button onclick="showAddCardForm('To Do')">Add Card</button>
+        <form id="add-card-form-To Do" style="display: none;" onsubmit="addCard(event, 'To Do')">
+            <input type="text" id="new-card-name-To Do" placeholder="Card name" title="text" required>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    <div class="board-column">
+        <h2>Doing</h2>
+        <ul id="doing-list">
+            {% for card in cards if card.list == 'Doing' %}
+            <li class="card-item" data-id="{{ card.card_id }}">
+                <input type="text" id="card-name-{{ card.card_id }}" value="{{ card.name }}" title="text" readonly>
+                <div class="card-buttons">
+                    <button onclick="editCard('{{ card.card_id }}')">Edit</button>
+                    <button onclick="saveCard('{{ card.card_id }}')" style="display: none;">Save</button>
+                    <button onclick="deleteCard('{{ card.card_id }}')">Delete</button>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <button onclick="showAddCardForm('Doing')">Add Card</button>
+        <form id="add-card-form-Doing" style="display: none;" onsubmit="addCard(event, 'Doing')">
+            <input type="text" id="new-card-name-Doing" placeholder="Card name" title ="text" required>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    <div class="board-column">
+        <h2>Completed</h2>
+        <ul id="completed-list">
+            {% for card in cards if card.list == 'Completed' %}
+            <li class="card-item" data-id="{{ card.card_id }}">
+                <input type="text" id="card-name-{{ card.card_id }}" value="{{ card.name }}" title ="text" readonly>
+                <div class="card-buttons">
+                    <button onclick="editCard('{{ card.card_id }}')">Edit</button>
+                    <button onclick="saveCard('{{ card.card_id }}')" style="display: none;">Save</button>
+                    <button onclick="deleteCard('{{ card.card_id }}')">Delete</button>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <button onclick="showAddCardForm('Completed')">Add Card</button>
+        <form id="add-card-form-Completed" style="display: none;" onsubmit="addCard(event, 'Completed')">
+            <input type="text" id="new-card-name-Completed" placeholder="Card name"  title ="text" required>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+</div>
+
+<!-- Chat Box -->
+<div id='chat' readonly>    
+</div>
+
+<p>
+<input class="login-input" id="user-message" placeholder="Enter Your Message Here" title="login input"/>
+</p>
+
+{% endblock %}

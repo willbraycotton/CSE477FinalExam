@@ -1,0 +1,6 @@
+.login-intro {
+    color: rgb(47, 47, 189);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.875rem; /* 30px -> 1.875rem */
+    text-align: center;
+}

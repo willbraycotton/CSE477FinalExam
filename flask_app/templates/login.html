@@ -1,0 +1,53 @@
+{% extends 'shared/layout.html' %}
+
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+
+
+{% block maincontent %}
+<br>
+<p class="login-intro">Login</p>
+<br>
+
+
+<div id="login-main">
+    <div id="login-div">
+        <input name="email" type="email" class="login-input" id="login-email" placeholder="Your Email" required />
+        <input name="password" type="password" class="login-input" id="password-comment" required placeholder="Your Password" required/>
+        <input type="submit" value="Login" id="feedback-button-blue" onclick="checkCredentials()"/>
+        <p id="error"></p>
+
+        <p>Create an account <a href="/signup"> here</a></p>
+        <br><br>
+    </div>
+  </div>
+
+<br><br><br><br>
+<script>
+let failureCount = 0; 
+
+function checkCredentials() {
+    var email = document.getElementById('login-email').value;
+    var password = document.getElementById('password-comment').value;
+    var data_d = {'email': email, 'password': password};
+
+    jQuery.ajax({
+        url: "/processlogin",
+        data: data_d,
+        type: "POST",
+        success: function(returned_data) {
+            returned_data = JSON.parse(returned_data);
+            if (returned_data['success'] == 1) {
+                window.location.href = "/home";
+            } else {
+                failureCount++;
+                document.getElementById('error').innerText = 'Incorrect login ' + failureCount + ' times. Try Again.';
+            }
+        }
+    });
+}
+</script>
+{% endblock %}
+
+

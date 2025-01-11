@@ -1,0 +1,93 @@
+.board-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.25rem; /* Adds space between columns (20px -> 1.25rem) */
+}
+
+.board-column {
+    flex: 1;
+    padding: 1.25rem; /* Increased padding for better spacing (20px -> 1.25rem) */
+    border: 0.0625rem solid #ccc; /* 1px -> 0.0625rem */
+    border-radius: 0.3125rem; /* 5px -> 0.3125rem */
+    background-color: #f9f9f9;
+    min-height: 25rem; /* Ensures columns have a minimum height (400px -> 25rem) */
+    display: flex;
+    flex-direction: column;
+}
+
+.board-column h2 {
+    text-align: center;
+    margin-bottom: 0.625rem; /* Adds space between the header and the list (10px -> 0.625rem) */
+}
+
+.board-column ul {
+    list-style-type: none;
+    padding: 0;
+    flex-grow: 1; /* Allows the list to grow and fill the column */
+}
+
+.board-column li {
+    padding: 0.625rem; /* Increased padding for better spacing (10px -> 0.625rem) */
+    margin: 0.3125rem 0; /* 5px -> 0.3125rem */
+    background-color: #fff;
+    border: 0.0625rem solid #ddd; /* 1px -> 0.0625rem */
+    border-radius: 0.1875rem; /* 3px -> 0.1875rem */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Add styles for locked cards */
+.board-column li.locked {
+    background-color: #f0f0f0;
+    border-color: #999;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.card-buttons {
+    display: flex;
+    gap: 0.625rem; /* 10px -> 0.625rem */
+}
+
+button {
+    display: inline-block;
+    margin-top: 0.625rem; /* 10px -> 0.625rem */
+    padding: 0.625rem 1.25rem; /* 10px 20px -> 0.625rem 1.25rem */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0.3125rem; /* 5px -> 0.3125rem */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input[readonly] {
+    background-color: #f9f9f9;
+    border: none;
+    color: #333;
+}
+
+#chat-box {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 18.75rem; /* 300px -> 18.75rem */
+    background: #fff;
+    border: 0.0625rem solid #ccc; /* 1px -> 0.0625rem */
+    padding: 0.625rem; /* 10px -> 0.625rem */
+}
+
+#messages {
+    height: 12.5rem; /* 200px -> 12.5rem */
+    overflow-y: scroll;
+    border-bottom: 0.0625rem solid #ccc; /* 1px -> 0.0625rem */
+    margin-bottom: 0.625rem; /* 10px -> 0.625rem */
+}
+
+#chat-input {
+    width: calc(100% - 3.75rem); /* 100% - 60px -> 3.75rem */
+}

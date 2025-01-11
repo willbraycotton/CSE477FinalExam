@@ -1,0 +1,6 @@
+footer {
+    text-align: center;
+    padding: 0.625rem 0; /* 10px -> 0.625rem */
+    background-color: #333;
+    color: #FFFFFF;
+}

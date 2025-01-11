@@ -1,0 +1,113 @@
+html, body {
+    margin: 0;
+    height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+    padding: 3.125rem; /* 50px -> 3.125rem */
+    transition: height 0.3s ease-out;
+    align-self: center;
+    background-color: #8ad0f0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Row and Column Styles */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 1;
+    padding: 0.625rem; /* 10px -> 0.625rem */
+}
+
+/* Column Image */
+.column img {
+    width: 18.75rem; /* 300px -> 18.75rem */
+    height: auto;
+}
+
+/* Define styles for left and right columns */
+.section.two-col {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1.25rem; /* 20px -> 1.25rem */
+    max-height: 50vh;
+    max-width: 80vw;
+    flex-wrap: wrap;
+}
+
+.left {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 1.25rem; /* 20px -> 1.25rem */
+    position: relative;
+    left: 15.625rem; /* 250px -> 15.625rem */
+    border-radius: 3.125rem; /* 50px -> 3.125rem */
+}
+
+.right {
+    flex: 1;
+    padding-right: 0;
+    padding-left: 1.25rem; /* 20px -> 1.25rem */
+    border-radius: 3.125rem; /* 50px -> 3.125rem */
+    border-width: 0.3125rem; /* 5px -> 0.3125rem */
+    border-color: #000000;
+    border-style: groove;
+    position: relative;
+    right: 6.25rem; /* 100px -> 6.25rem */
+}
+
+/* About Me section */
+.about-me {
+    font-size: 0.9375rem; /* 15px -> 0.9375rem */
+    line-height: 1.6;
+    max-height: 50vh;
+    overflow-y: auto;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#piano a:link {
+    color: #002cf1;
+    font-size: 0.9375rem; /* 15px -> 0.9375rem */
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: none;
+    margin-left: 0.4375rem; /* 7px -> 0.4375rem */
+    margin-right: 0.4375rem; /* 7px -> 0.4375rem */
+}
+
+#piano a:visited {
+    color: #002cf1;
+}
+
+#piano a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+}
+
+/* Fun Fact section */
+.fun-fact {
+    text-align: center;
+    border-radius: 0.5rem; /* 8px -> 0.5rem */
+    padding: 1.25rem; /* 20px -> 1.25rem */
+}
+
+/* Changes layout when screen size becomes smaller */
+@media (max-width: 768px) {
+    .left, .right {
+        max-width: 100%;
+        padding: 0.625rem; /* 10px -> 0.625rem */
+    }
+
+    .section.two-col {
+        flex-direction: column; /* Stack columns vertically on small screens */
+        text-overflow: visible;
+    }
+}

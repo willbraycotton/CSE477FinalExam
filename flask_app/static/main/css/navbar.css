@@ -1,0 +1,92 @@
+nav {
+    background-color: #252525;
+    text-align: center;
+    padding: 1.875rem; /* 30px -> 1.875rem */
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Assignment name */
+.asmt h1 {
+    color: #4d95af;
+    font-size: 1.5625rem; /* 25px -> 1.5625rem */
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Style of unvisited links */
+.links a:link {
+    color: #a3aeb3;
+    font-size: 1.25rem; /* 20px -> 1.25rem */
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: none;
+    margin-left: 0.4375rem; /* 7px -> 0.4375rem */
+    margin-right: 0.4375rem; /* 7px -> 0.4375rem */
+}
+
+/* Style of visited links */
+.links a:visited {
+    color: #a3aeb3;
+    font-size: 1.25rem; /* 20px -> 1.25rem */
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: none;
+}
+
+/* Changes opacity if mouse is hovering over link */
+.links a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+}
+
+/* LinkedIn logo */
+.linkedin-logo {
+    width: 1.875rem; /* 30px -> 1.875rem */
+    height: auto;
+    position: relative;
+    top: 0.5rem; /* 8px -> 0.5rem */
+}
+
+.mobile {
+    display: none;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1.25rem; /* 20px -> 1.25rem */
+}
+
+/* Links in drop-down menu */
+.mob-links {
+    flex-direction: column;
+    position: absolute;
+    top: 3.125rem; /* 50px -> 3.125rem */
+    right: 0;
+    background-color: #333;
+    z-index: 1;
+    display: none;
+}
+
+.mob-links a {
+    padding: 0.625rem; /* 10px -> 0.625rem */
+    text-align: right;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.mob-links a:hover {
+    opacity: 0.7;
+    text-decoration: none;
+}
+
+/* Puts links in drop-down menu when screen size is less than 650px */
+@media (max-width: 40.625rem) { /* 650px -> 40.625rem */
+    .mobile {
+        display: block;
+    }
+
+    .links {
+        display: none;
+    }
+    
+    .mob-links.active {
+        display: flex;
+    }
+}

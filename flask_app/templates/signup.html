@@ -1,0 +1,72 @@
+{% extends 'shared/layout.html' %}
+
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+
+
+{% block maincontent %}
+
+<h1 class = "header-login">Please Sign Up!</h1>
+
+
+<div class= "login1" id="login">
+
+    <p class="email-login">
+        <input name="email" type="email" class = "email" id="email" placeholder="Your Email" required />
+    </p>
+    <p class="password-login">
+        <input name="password" type="password" class = "email"  id="password" required placeholder="Your Password" required/>
+    </p>
+
+    <div class="login-button">
+        <input type="submit" value="Register" class = "login-button-button" id="submit-button" onclick="registerUser()"/>
+    </div>
+
+    <p id="authentication-failure"></p>
+
+</div>
+
+
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+<script>
+    function registerUser() {
+
+        var data = {
+            'email': document.getElementById('email').value,
+            'password': document.getElementById('password').value
+        };
+    
+        jQuery.ajax({
+            url: "/register",
+            data: data,
+            type: "POST",
+            success: function(returned_data) {
+                returned_data = JSON.parse(returned_data);
+                if (returned_data['success'] == 1) {
+                    window.location.href = "/home";
+                } else {
+                    document.getElementById('authentication-failure').innerHTML = 'Registration failed. Please try again.';
+                }
+            }
+        });
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,7 @@
+#dashboard {
+    text-align: center;
+}
+
+#new-board-form {
+    margin-top: 1.25rem; /* 20px -> 1.25rem */
+}

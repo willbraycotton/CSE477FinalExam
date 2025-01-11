@@ -1,0 +1,38 @@
+{% extends 'shared/layout.html' %}
+{% block extrajs %}
+<script src="{{ url_for('static', filename='main/js/home.js') }}" defer></script>
+{% endblock %}
+
+{% block maincontent %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/home.css">
+</head>
+<body>
+    <div id="dashboard">
+        <h1>Welcome to Your Dashboard</h1>
+        <button id="create-board-btn">Create New Board</button>
+        <div id="new-board-form" style="display: none;">
+            <input type="text" id="new-board-name" placeholder="Enter project name" required />
+            <input type="text" id="new-board-members" placeholder="Enter member emails, separated by commas" required />
+            <button id="new-submit-board">Create Board</button>
+        </div>
+
+        <button id="open-existing-btn">Open Existing Board</button>
+        <div id="old-board-form" style="display: none;">
+            <ul id="existing-board-list"></ul>
+        </div>
+    </div>
+
+    <template id="board-link-template">
+        <div class="board-link">
+            <a href="#" class="open-board">Open Board</a>
+        </div>
+    </template>
+</body>
+</html>
+{% endblock %}
